@@ -1,0 +1,52 @@
+
+
+:root {
+    --purple-bg: #7945FF;
+    --yellow: #FFCE67;
+    --red: #FD6687;
+    --dark-blue: #5C2DD5;
+}
+
+.hidden {
+    display: none!;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--purple-bg);
+}
+
+.game-board {
+    background-color: #FFF;
+    position: relative;
+    display: flex;
+    gap: 24px;
+    padding: 24px 24px 72px 24px;
+    border: solid 3px black;
+    border-radius: 32px;
+}
+
+.columns {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.cells {
+    width: 80px;
+    height: 80px;
+    background-color: var(--purple-bg);
+    border: solid 3px black;
+    border-radius: 100px;
+}
+
+.yellow {
+    background-color: var(--yellow);
+}
+
+.red {
+    background-color: var(--red);
+}
