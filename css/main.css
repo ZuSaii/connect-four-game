@@ -33,6 +33,12 @@ body {
     display: flex;
     flex-direction: column;
     gap: 24px;
+    transition-duration: 0.2s;
+}
+
+.columns:hover {
+    cursor: pointer;
+    transform: scale(1.02);
 }
 
 .cells {
@@ -47,6 +53,14 @@ body {
     background-color: var(--yellow);
 }
 
+.purple {
+    background-color: green;
+}
+
 .red {
     background-color: var(--red);
 }
+
+/* .cells[data-x="5"][data-y="3"] {
+    background-color: tomato;
+} */

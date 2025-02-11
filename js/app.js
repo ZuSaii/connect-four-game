@@ -4,12 +4,12 @@ const $cells = document.querySelectorAll(".cells")
 
 let currentPlayer = "red"
 let gameGridBoard = [
-    [""], [""], [""], [""], [""], [""], [""],
-    [""], [""], [""], [""], [""], [""], [""],
-    [""], [""], [""], [""], [""], [""], [""],
-    [""], [""], [""], [""], [""], [""], [""],
-    [""], [""], [""], [""], [""], [""], [""],
-    [""], [""], [""], [""], [""], [""], [""],
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
 ]
 
 
@@ -18,87 +18,103 @@ $cells.forEach(function (cell) {
 })
 
 $cells.forEach(function ($cell) {
-
-    const dataX = $cell.getAttribute("data-x")
-    const dataY = $cell.getAttribute("data-y")
-
     function checkWin(gridBoard) {
-        let result = 0
 
-        for (let i = 0; i < 4; i++) {
-            if (gridBoard[dataX+i][dataY] === currentPlayer) {
-                result++;
-            }
-            if (result = 4) {
-                console.log("gagner en bien")
-                return true
-            }
-        }
-
-        for (let col = 0; col < 7 ; col++)
-        for (let row = 0; row <= 3; row++) {
-            if (
-                gridBoard[row][col] !== "" &&
-                gridBoard[row][col] === gridBoard[row][col + 1] &&
-                gridBoard[row][col] === gridBoard[row][col + 2] &&
-                gridBoard[row][col] === gridBoard[row][col + 3]
-            ) {
-                return true;
+        for (let x = 0; x < 6; x++) {
+            for (let y = 0; y <= 5; y++) {
+                if (
+                    gridBoard[y][x] !== "" &&
+                    gridBoard[y][x] === gridBoard[y][x + 1] &&
+                    gridBoard[y][x] === gridBoard[y][x + 2] &&
+                    gridBoard[y][x] === gridBoard[y][x + 3]
+                ) {
+                    return true;
+                }
             }
         }
 
-        // Vérifier la diagonale principale
-        if (
-            gridBoard[0][0] !== "" &&
-            gridBoard[0][0] === gridBoard[1][1] &&
-            gridBoard[1][1] === gridBoard[2][2] &&
-            gridBoard[2][2] === gridBoard[3][3]
-        ) {
-            // return true;
+        for (let x = 0; x < 6; x++) {
+            for (let y = 0; y <= 2; y++) {
+                if (
+                    gridBoard[y][x] !== "" &&
+                    gridBoard[y][x] === gridBoard[y + 1][x] &&
+                    gridBoard[y][x] === gridBoard[y + 2][x] &&
+                    gridBoard[y][x] === gridBoard[y + 3][x]
+                ) {
+                    return true;
+                }
+            }
         }
 
-        // Vérifier la diagonale secondaire
-        if (
-            gridBoard[0][3] !== "" &&
-            gridBoard[0][3] === gridBoard[1][2] &&
-            gridBoard[1][2] === gridBoard[2][1] &&
-            gridBoard[2][1] === gridBoard[3][0]
-        ) {
-            // return true;
+        for (let x = 0; x <= 3; x++) {
+            for (let y = 0; y <= 2; y++) {
+                if (
+                    gridBoard[y][x] !== "" &&
+                    gridBoard[y][x] === gridBoard[y + 1][x + 1] &&
+                    gridBoard[y][x] === gridBoard[y + 2][x + 2] &&
+                    gridBoard[y][x] === gridBoard[y + 3][x + 3]
+                ) {
+                    return true;
+                }
+            }
+        }
+
+        for (let x = 3; x < 6; x++) {
+            for (let y = 0; y <= 2; y++) {
+                if (
+                    gridBoard[y][x] !== "" &&
+                    gridBoard[y][x] === gridBoard[y - 1][x - 1] &&
+                    gridBoard[y][x] === gridBoard[y - 2][x - 2] &&
+                    gridBoard[y][x] === gridBoard[y - 3][x - 3]
+                ) {
+                    return true;
+                }
+            }
         }
 
         return false;
     }
 
-    // i5--drop 63 72 23 362
-
     $cell.addEventListener("click", function (event) {
 
-        gameGridBoard[dataY][dataX] = currentPlayer
+        const dataX = $cell.getAttribute("data-x")
+        const dataY = $cell.getAttribute("data-y")
 
         console.log(gameGridBoard)
 
-        // const winCheck = checkWin(gameGridBoard)
-
-        console.log("oe")
-        if ($cell.hasChildNodes() === false)
-            if (currentPlayer === "red") {
-                $cell.classList.add("red")
-                currentPlayer = "yellow"
-                if (checkWin(gameGridBoard) === true) {
-                    console.log("Bien jouer au rouge")
-                }
-            } else {
-                $cell.classList.add("yellow")
-                currentPlayer = "red"
-                if (checkWin(gameGridBoard) === true) {
-                    console.log("bien jouer au rouge")
+        function dropPions(index) {
+            for (let i = 5; i >= 0; i--) {
+                if (gameGridBoard[i][index] === "") {
+                    gameGridBoard[i][index] = currentPlayer
+                    return [i, index]
+                } else {
+                    continue
                 }
             }
-
-        if (winCheck) {
-            console.log(currentPlayer)
         }
+        const location = dropPions(dataX)
+            const y = location[0]
+            const x = location[1]
+            const $selectedCell = document.querySelector(`.cells[data-x="${location[1]}"][data-y="${location[0]}"]`)
+            let selectedCell = $selectedCell
+        // const winCheck = checkWin(gameGridBoard)
+        if (currentPlayer === "red") {
+            selectedCell.classList.add("red")
+            currentPlayer = "yellow"
+            if (checkWin(gameGridBoard) === true) {
+                console.log("Bien jouer au rouge")
+            }
+        } else {
+            selectedCell.classList.add("yellow")
+            currentPlayer = "red"
+            if (checkWin(gameGridBoard) === true) {
+                console.log("bien jouer au jaune")
+             }
+        }
+
+        // if (winCheck) {
+        //     console.log(currentPlayer)
+        // }
     })
 })
 
