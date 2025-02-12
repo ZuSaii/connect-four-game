@@ -2,6 +2,7 @@ const $gameBoard = document.querySelector(".game-board");
 const $columns = document.querySelectorAll(".columns")
 const $cells = document.querySelectorAll(".cells")
 
+let locked = false
 let currentPlayer = "red"
 let gameGridBoard = [
     ["", "", "", "", "", "", ""],
@@ -60,18 +61,17 @@ $cells.forEach(function ($cell) {
         }
 
         for (let x = 3; x < 6; x++) {
-            for (let y = 0; y <= 2; y++) {
+            for (let y = 0; y < 3; y++) {
                 if (
                     gridBoard[y][x] !== "" &&
-                    gridBoard[y][x] === gridBoard[y - 1][x - 1] &&
-                    gridBoard[y][x] === gridBoard[y - 2][x - 2] &&
-                    gridBoard[y][x] === gridBoard[y - 3][x - 3]
+                    gridBoard[y][x] === gridBoard[y + 1][x - 1] &&
+                    gridBoard[y][x] === gridBoard[y + 2][x - 2] &&
+                    gridBoard[y][x] === gridBoard[y + 3][x - 3]
                 ) {
                     return true;
                 }
             }
         }
-
         return false;
     }
 
@@ -92,6 +92,7 @@ $cells.forEach(function ($cell) {
                 }
             }
         }
+
         const location = dropPions(dataX)
             const y = location[0]
             const x = location[1]
@@ -113,7 +114,7 @@ $cells.forEach(function ($cell) {
         }
 
         // if (winCheck) {
-        //     console.log(currentPlayer)
+
         // }
     })
 })
