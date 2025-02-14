@@ -180,6 +180,13 @@ $cells.forEach(function ($cell) {
         const $selectedCell = document.querySelector(`.cells[data-x="${location[1]}"][data-y="${location[0]}"]`)
         let selectedCell = $selectedCell
         // const winCheck = checkWin(gameGridBoard)
+        if (currentPlayer === "red") {
+            selectedCell.classList.add("red")
+            currentPlayer = "yellow"
+        } else {
+            selectedCell.classList.add("yellow")
+            currentPlayer = "red"
+        }
 
         if (currentPlayer === "red") {
             $timer.classList.add("red")
@@ -198,9 +205,8 @@ $cells.forEach(function ($cell) {
         }
 
         if (currentPlayer === "red") {
-            selectedCell.classList.add("red")
-            currentPlayer = "yellow"
             if (checkWin(gameGridBoard) === true) {
+                currentPlayer = "red"
                 clearInterval(boucle)
                 countRed++
                 $countPointsRed.textContent = `${countRed}`
@@ -213,9 +219,8 @@ $cells.forEach(function ($cell) {
                 $time.textContent = "WINS"
             }
         } else {
-            selectedCell.classList.add("yellow")
-            currentPlayer = "red"
             if (checkWin(gameGridBoard) === true) {
+                currentPlayer = "yellow"
                 clearInterval(boucle)
                 countYellow++
                 $countPointsYellow.textContent = `${countYellow}`
@@ -228,10 +233,12 @@ $cells.forEach(function ($cell) {
                 $time.textContent = "WINS"
             }
         }
+
+        console.log(currentPlayer)
     })
 })
 
-$timerPlay.addEventListener("click", function() {
+$timerPlay.addEventListener("click", function () {
     $playerTurn.textContent = `PLAYER RED'S`
     $time.textContent = "Start"
     start = 0
@@ -256,7 +263,7 @@ $timerPlay.addEventListener("click", function() {
         cell.innerHTML = ""
         cell.classList.remove("red")
         cell.classList.remove("yellow")
-    })  
+    })
 })
 
 $headerButtonRestart.addEventListener("click", function () {
@@ -266,7 +273,7 @@ $headerButtonRestart.addEventListener("click", function () {
     locked = false
     clearInterval(boucle)
     $timer.classList.remove("yellow")
-    $timer.classList.add("red")
+    $timer.classList.remove("red")
     $footer.classList.remove("yellow")
     $timerPlay.classList.add("hidden")
     $footer.classList.remove("red")
@@ -284,5 +291,5 @@ $headerButtonRestart.addEventListener("click", function () {
         cell.innerHTML = ""
         cell.classList.remove("red")
         cell.classList.remove("yellow")
-    })   
+    })
 })
