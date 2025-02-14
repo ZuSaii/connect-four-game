@@ -291,4 +291,94 @@ header button {
     border-radius: 20px;
     background-color: var(--dark-blue);
     color: #FFF;
+    cursor: pointer;
+}
+
+.rules-menu {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--purple-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rules-menu-container {
+    width: 480px;
+    background-color: #FFF;
+    box-shadow: 0 5px 0px 1px black;
+    border: solid 3px black;
+    border-radius: 40px;
+    padding: 30px 34px 60px 34px;
+    position: relative;
+}
+
+.rules-menu-container p {
+    opacity: 66%;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    font-family: "Space Grotesk", serif;
+}
+
+.rules-menu-container h3 {
+    color: #7945FF;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 25px;
+    font-family: "Space Grotesk", serif;
+    text-transform: uppercase;
+}
+
+
+
+.rules-menu-title {
+    text-align: center;
+    color: black;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 71px;
+    margin-bottom: 28px;
+    font-family: "Space Grotesk", serif;
+}
+
+.rules-menu-objective {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.rules-menu-play {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.rules-menu ol {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rules-menu ol li {
+    display: flex;
+    gap: 20px;
+}
+
+.rules-menu ol li span {
+    font-size: 16px;
+    line-height: 20px;
+    font-family: "Space Grotesk", serif;
+    font-weight: 700;
+}
+
+.rules-menu-check {
+    position: absolute;
+    bottom: -35px;
+    left: 200px;
+    cursor: pointer;
 }

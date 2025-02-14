@@ -15,10 +15,9 @@
 </head>
 
 <body>
-    <p class="time">30s</p>
-    <section class="bottom">
+    <section class="bottom hidden">
     </section>
-    <section class="home-container hidden">
+    <section class="home-container">
         <div class="home-content">
             <div class="home-logo">
                 <?xml version="1.0" encoding="UTF-8"?>
@@ -111,8 +110,53 @@
             </div>
         </div>
     </section>
+    <section class="rules-menu hidden">
+        <div class="rules-menu-container">
+            <h2 class="rules-menu-title">rules</h2>
+            <div class="rules-menu-objective">
+                <h3 class="objective-title">objective</h3>
+                <p class="objective-description">Be the first player to connect 4 of the same colored discs in a row
+                    (either vertically, horizontally, or diagonally).</p>
+            </div>
+            <div class="rules-menu-play">
+                <h3>how to play</h3>
+                <ol class="rules-menu-play-rules">
+                    <li>
+                        <span>1</span>
+                        <p>Red goes first in the first game.</p>
+                    </li>
+                    <li>
+                        <span>2</span>
+                        <p>Players must alternate turns, and only one disc can be dropped in each turn.</p>
+                    </li>
+                    <li>
+                        <span>3</span>
+                        <p>The game ends when there is a 4-in-a-row or a stalemate.</p>
+                    </li>
+                    <li>
+                        <span>4</span>
+                        <p>The starter of the previous game goes second on the next game.</p>
+                    </li>
+                </ol>
+            </div>
+            <?xml version="1.0" encoding="UTF-8"?>
+            <svg class="rules-menu-check" width="70px" height="75px" viewBox="0 0 70 75" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <title>icon-check</title>
+                <g id="Designs" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="icon-check">
+                        <circle id="Oval-Copy-37" fill="#000000" cx="35" cy="35" r="35"></circle>
+                        <circle id="Oval-Copy-38" fill="#000000" cx="35" cy="40" r="35"></circle>
+                        <circle id="Oval-Copy-39" fill="#FD6687" cx="35" cy="35" r="32"></circle>
+                        <polyline id="Path" stroke="#FFFFFF" stroke-width="3"
+                            points="20 34.5819497 30.2640104 44.84596 50.1099704 25"></polyline>
+                    </g>
+                </g>
+            </svg>
+        </div>
+    </section>
     <main>
-        <header>
+        <header class="hidden">
             <button class="header-button-menu">menu</button>
             <svg width="58px" height="61px" viewBox="0 0 58 61" version="1.1" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -144,7 +188,7 @@
             </svg>
             <button class="header-button-restart">restart</button>
         </header>
-        <div class="middle-page">
+        <div class="middle-page hidden">
             <section class="player-red">
                 <?xml version="1.0" encoding="UTF-8"?>
                 <svg width="54px" height="59px" viewBox="0 0 54 59" version="1.1" xmlns="http://www.w3.org/2000/svg"

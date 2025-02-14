@@ -2,6 +2,16 @@ const $gameBoard = document.querySelector(".game-board");
 const $columns = document.querySelectorAll(".columns")
 const $cells = document.querySelectorAll(".cells")
 const $time = document.querySelector(".time")
+const $homeContainer = document.querySelector(".home-container")
+const $bottom = document.querySelector(".bottom")
+const $header = document.querySelector("header")
+const $homeButtonVs = document.querySelector(".home-button-vs")
+const $homeButtonRules = document.querySelector(".home-button-rules")
+const $middlePage = document.querySelector(".middle-page")
+const $headerButtonMenu = document.querySelector(".header-button-menu")
+const $rulesMenuCheck = document.querySelector(".rules-menu-check")
+const $rulesMenu = document.querySelector(".rules-menu")
+const $headerButtonRestart = document.querySelector(".header-button-restart")
 
 let locked = false
 let boucle
@@ -14,6 +24,36 @@ let gameGridBoard = [
     ["", "", "", "", "", "", ""],
     ["", "", "", "", "", "", ""],
 ]
+
+$homeButtonVs.addEventListener("click", function() {
+    $homeContainer.classList.add("hidden")
+    $header.classList.remove("hidden")
+    $middlePage.classList.remove("hidden")
+    $bottom.classList.remove("hidden")
+})
+
+$headerButtonMenu.addEventListener("click", function() {
+    $homeContainer.classList.remove("hidden")
+    $header.classList.add("hidden")
+    $middlePage.classList.add("hidden")
+    $bottom.classList.add("hidden")
+})
+
+$homeButtonRules.addEventListener("click", function() {
+    $rulesMenu.classList.remove("hidden")
+    $homeContainer.classList.add("hidden")
+    $header.classList.add("hidden")
+    $middlePage.classList.add("hidden")
+    $bottom.classList.add("hidden")
+})
+
+$rulesMenuCheck.addEventListener("click", function() {
+    $homeContainer.classList.remove("hidden")
+    $header.classList.add("hidden")
+    $middlePage.classList.add("hidden")
+    $bottom.classList.add("hidden")
+    $rulesMenu.classList.add("hidden")
+})
 
 function timerBoucle() {
     let temps = 20
