@@ -21,7 +21,11 @@ function timerBoucle() {
     let boucle = setInterval({
         temps--
         if (temps === 0) {
-            if()
+            if(currentPlayer === "red") {
+                currentPlayer === ""
+            } else if (currentPlayer === "yellow") {
+                currentPlayer === "red"
+            }
         }
     }, 1000) 
 }
