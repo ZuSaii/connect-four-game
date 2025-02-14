@@ -34,6 +34,7 @@ body {
     display: flex;
     gap: 60px;
     align-items: center;
+    position: relative;
 }
 
 header {
@@ -65,28 +66,6 @@ header {
     background-color: var(--purple-bg);
     border: solid 3px black;
     border-radius: 100px;
-}
-
-.yellow {
-    background-color: var(--yellow);
-}
-
-.purple {
-    background-color: green;
-}
-
-.red {
-    background-color: var(--red);
-}
-
-.bottom {
-    background-color: var(--dark-blue);
-    border-radius: 64px 64px 0px 0px;
-    width: 100%;
-    height: 20%;
-    position: absolute;
-    content: " ";
-    bottom: 0px;
 }
 
 .home-container {
@@ -261,7 +240,8 @@ header {
     margin-bottom: 16px;
 }
 
-.count-points {
+.count-points-red,
+.count-points-yellow {
     font-size: 56px;
     font-weight: 700;
     text-align: center;
@@ -291,7 +271,13 @@ header button {
     border-radius: 20px;
     background-color: var(--dark-blue);
     color: #FFF;
+    transition-duration: 0.3s;
     cursor: pointer;
+}
+
+header button:hover {
+    border: solid 1px white;
+    transform: scale(1.05);
 }
 
 .rules-menu {
@@ -372,7 +358,6 @@ header button {
 .rules-menu ol li span {
     font-size: 16px;
     line-height: 20px;
-    font-family: "Space Grotesk", serif;
     font-weight: 700;
 }
 
@@ -381,4 +366,81 @@ header button {
     bottom: -35px;
     left: 200px;
     cursor: pointer;
+}
+
+footer {
+    background-color: var(--dark-blue);
+    border-radius: 64px 64px 0px 0px;
+    width: 100%;
+    height: 20%;
+    position: absolute;
+    content: " ";
+    bottom: -60px;
+    z-index: -1;
+}
+
+.timer {
+    position: absolute;
+    width: 285px;
+    height: 160px;
+    background-color: var(--red);
+    border: solid 4px black;
+    left: 440px;
+    border-radius:20px;
+    bottom: -110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.time {
+    font-family: "Space Grotesk", serif;
+    color: white;
+    font-size: 56px;
+    text-transform: uppercase;
+    line-height: 71px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.player-turn {
+    text-align: center;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    font-family: "Space Grotesk", serif;
+    color: white;
+}
+
+.timer-play {
+    text-align: center;
+    padding: 10px 22px;
+    border-radius: 20px;
+    background-color: var(--purple-bg);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: white;
+    font-family: "Space Grotesk", serif;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.yellow {
+    background-color: var(--yellow);
+}
+
+.red {
+    background-color: var(--red);
+}
+
+.white {
+    background-color: #FFF;
+}
+
+.black {
+    color: black;
 }
