@@ -3,6 +3,7 @@ const $columns = document.querySelectorAll(".columns")
 const $cells = document.querySelectorAll(".cells")
 
 let locked = false
+let boucle
 let currentPlayer = "red"
 let gameGridBoard = [
     ["", "", "", "", "", "", ""],
@@ -13,6 +14,17 @@ let gameGridBoard = [
     ["", "", "", "", "", "", ""],
 ]
 
+function timerBoucle() {
+    let temps = 20
+    clearInterval(boucle)
+
+    let boucle = setInterval({
+        temps--
+        if (temps === 0) {
+            if()
+        }
+    }, 1000) 
+}
 
 $cells.forEach(function (cell) {
     cell.innerHTML = ""
