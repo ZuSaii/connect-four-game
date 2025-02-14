@@ -18,6 +18,7 @@ const $playerTurn = document.querySelector(".player-turn")
 const $timerPlay = document.querySelector(".timer-play")
 const $countPointsRed = document.querySelector(".count-points-red")
 const $countPointsYellow = document.querySelector(".count-points-yellow")
+const $pauseMenu = document.querySelector(".pause-menu-container")
 
 $playerTurn.textContent = `PLAYER RED'S`
 $time.textContent = "Start"
@@ -35,6 +36,19 @@ let gameGridBoard = [
     ["", "", "", "", "", "", ""],
     ["", "", "", "", "", "", ""],
 ]
+
+document.onkeydown = function(e) {
+    e = e || window.Event
+    let isEscape = false
+    if ("key" in e) {
+        isEscape = (e.key === "Escape" || e.key === "Esc");
+    } else {
+        isEscape = (e.keyCode === 27);
+    }
+    if (isEscape) {
+        $pauseMenu.classList.remove("hidden")
+    }
+};
 
 $homeButtonVs.addEventListener("click", function () {
     $homeContainer.classList.add("hidden")
@@ -77,18 +91,36 @@ function timerBoucle() {
         if (temps === 0) {
             clearInterval(boucle)
             if (currentPlayer === "red") {
-                currentPlayer === "yellow"
-                console.log("red lost on time")
+                currentPlayer = "yellow"
+                clearInterval(boucle)
+                countYellow++
+                $countPointsYellow.textContent = `${countYellow}`
                 $footer.classList.add("yellow")
+                $timer.classList.add("white")
+                $time.classList.add("black")
+                $playerTurn.classList.add("black")
+                $timerPlay.classList.remove("hidden")
+                $playerTurn.textContent = "PLAYER YELLOW"
+                $time.textContent = "WINS"
 
             } else if (currentPlayer === "yellow") {
-                currentPlayer === "red"
-                console.log("yellow lost on time")
+                currentPlayer = "red"
+                clearInterval(boucle)
+                countRed++
+                $countPointsRed.textContent = `${countRed}`
                 $footer.classList.add("red")
+                $timer.classList.add("white")
+                $time.classList.add("black")
+                $playerTurn.classList.add("black")
+                $timerPlay.classList.remove("hidden")
+                $playerTurn.textContent = "PLAYER RED"
+                $time.textContent = "WINS"
             }
         }
     }, 1000)
 }
+
+
 
 $cells.forEach(function (cell) {
     cell.innerHTML = ""
@@ -136,7 +168,7 @@ $cells.forEach(function ($cell) {
             }
         }
 
-        for (let x = 3; x < 6; x++) {
+        for (let x = 3; x < 7; x++) {
             for (let y = 0; y < 3; y++) {
                 if (
                     gridBoard[y][x] !== "" &&
@@ -144,11 +176,30 @@ $cells.forEach(function ($cell) {
                     gridBoard[y][x] === gridBoard[y + 2][x - 2] &&
                     gridBoard[y][x] === gridBoard[y + 3][x - 3]
                 ) {
+
                     return true;
                 }
             }
         }
         return false;
+    }
+
+    function turnToPlay() {
+        if (currentPlayer === "red") {
+            $timer.classList.add("red")
+            $timer.classList.remove("yellow")
+            $timer.classList.remove("white")
+            $playerTurn.textContent = `PLAYER RED'S TURN`
+            clearInterval(boucle)
+            timerBoucle()
+        } else if (currentPlayer === "yellow") {
+            $timer.classList.add("yellow")
+            $timer.classList.remove("white")
+            $timer.classList.remove("red")
+            $playerTurn.textContent = `PLAYER YELLOW'S TURN`
+            clearInterval(boucle)
+            timerBoucle()
+        }
     }
 
     $cell.addEventListener("click", function (event) {
@@ -180,31 +231,12 @@ $cells.forEach(function ($cell) {
         const $selectedCell = document.querySelector(`.cells[data-x="${location[1]}"][data-y="${location[0]}"]`)
         let selectedCell = $selectedCell
         // const winCheck = checkWin(gameGridBoard)
+       
+
         if (currentPlayer === "red") {
             selectedCell.classList.add("red")
             currentPlayer = "yellow"
-        } else {
-            selectedCell.classList.add("yellow")
-            currentPlayer = "red"
-        }
-
-        if (currentPlayer === "red") {
-            $timer.classList.add("red")
-            $timer.classList.remove("yellow")
-            $timer.classList.remove("white")
-            $playerTurn.textContent = `PLAYER RED'S TURN`
-            clearInterval(boucle)
-            timerBoucle()
-        } else if (currentPlayer === "yellow") {
-            $timer.classList.add("yellow")
-            $timer.classList.remove("white")
-            $timer.classList.remove("red")
-            $playerTurn.textContent = `PLAYER YELLOW'S TURN`
-            clearInterval(boucle)
-            timerBoucle()
-        }
-
-        if (currentPlayer === "red") {
+            turnToPlay()
             if (checkWin(gameGridBoard) === true) {
                 currentPlayer = "red"
                 clearInterval(boucle)
@@ -219,6 +251,9 @@ $cells.forEach(function ($cell) {
                 $time.textContent = "WINS"
             }
         } else {
+            selectedCell.classList.add("yellow")
+            currentPlayer = "red"
+            turnToPlay()
             if (checkWin(gameGridBoard) === true) {
                 currentPlayer = "yellow"
                 clearInterval(boucle)
@@ -233,10 +268,9 @@ $cells.forEach(function ($cell) {
                 $time.textContent = "WINS"
             }
         }
-
-        console.log(currentPlayer)
     })
 })
+
 
 $timerPlay.addEventListener("click", function () {
     $playerTurn.textContent = `PLAYER RED'S`
@@ -246,6 +280,7 @@ $timerPlay.addEventListener("click", function () {
     clearInterval(boucle)
     $timer.classList.remove("yellow")
     $timer.classList.add("red")
+    $timer.classList.remove("white")
     $footer.classList.remove("yellow")
     $footer.classList.remove("red")
     $timerPlay.classList.add("hidden")
@@ -274,6 +309,7 @@ $headerButtonRestart.addEventListener("click", function () {
     clearInterval(boucle)
     $timer.classList.remove("yellow")
     $timer.classList.remove("red")
+    $timer.classList.remove("white")
     $footer.classList.remove("yellow")
     $timerPlay.classList.add("hidden")
     $footer.classList.remove("red")

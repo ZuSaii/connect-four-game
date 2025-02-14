@@ -102,7 +102,8 @@ header {
 }
 
 .home-button-vs,
-.home-button-rules {
+.home-button-rules,
+.home-button-cpu {
     box-shadow: 0 5px 0px 1px black;
     border: solid 3px black;
     background-color: #FFF;
@@ -117,8 +118,6 @@ header {
     box-shadow: 0 5px 0px 1px var(--dark-blue);
     border: solid 3px var(--dark-blue);
 }
-
-
 
 .home-button-rules {
     font-size: 24px;
@@ -136,7 +135,22 @@ header {
     gap: 100px;
 }
 
+.home-button-cpu {
+    display: flex;
+    background-color: var(--red);
+    align-items: center;
+    justify-content: space-between;
+}
+
 .home-button-vs-text {
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: "Space Grotesk", serif;
+}
+
+.home-button-cpu-text {
     font-size: 24px;
     line-height: 30px;
     font-weight: 700;
@@ -276,7 +290,7 @@ header button {
 }
 
 header button:hover {
-    border: solid 1px white;
+    background-color: var(--red);
     transform: scale(1.05);
 }
 
@@ -367,6 +381,7 @@ header button:hover {
     left: 200px;
     cursor: pointer;
 }
+
 
 footer {
     background-color: var(--dark-blue);
