@@ -1,6 +1,7 @@
 const $gameBoard = document.querySelector(".game-board");
 const $columns = document.querySelectorAll(".columns")
 const $cells = document.querySelectorAll(".cells")
+const $time = document.querySelector(".time")
 
 let locked = false
 let boucle
@@ -16,19 +17,23 @@ let gameGridBoard = [
 
 function timerBoucle() {
     let temps = 20
-    clearInterval(boucle)
+    $time.textContent = `${temps}s`
 
-    let boucle = setInterval({
+    let boucle = setInterval(() => {
         temps--
+        $time.textContent = `${temps}s`
         if (temps === 0) {
             if(currentPlayer === "red") {
                 currentPlayer === ""
             } else if (currentPlayer === "yellow") {
                 currentPlayer === "red"
             }
+            timerBoucle()
         }
     }, 1000) 
 }
+
+setInterval(timerBoucle(), 40000)
 
 $cells.forEach(function (cell) {
     cell.innerHTML = ""
