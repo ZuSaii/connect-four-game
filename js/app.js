@@ -42,6 +42,9 @@ const $chooseNameQuitBtn = document.querySelector(".choose-name-quit")
 const $errorMessageOne = document.querySelector(".error-message-name-one")
 const $errorMessageTwo = document.querySelector(".error-message-name-two")
 const $chooseNameForm = document.querySelector(".choose-name-form")
+const $bareTime = document.querySelector(".bare-time")
+const $bareTimeContentRed = document.querySelector(".bare-time-content-red")
+const $bareTimeContentYellow = document.querySelector(".bare-time-content-yellow")
 
 $time.textContent = "Start"
 let playerVsOne
@@ -89,6 +92,7 @@ $pauseMenuQuitBtn.addEventListener("click", function (e) {
     $pauseMenu.classList.add("hidden")
     $headerLogo.classList.remove("animation-header")
     $headerButtonRestart.classList.remove("animation-header")
+    $bareTime.classList.remove("animation-header")
     $gameBoard.classList.remove("animation-game-board")
     $timer.classList.remove("animation-timer")
     $headerButtonMenu.classList.remove("animation-header")
@@ -268,6 +272,7 @@ $main.addEventListener("mouseover", function (e) {
     setInterval(function () {
         $headerButtonRestart.classList.add("animation-header")
         $headerButtonMenu.classList.add("animation-header")
+        $bareTime.classList.add("animation-header")
     }, 1100)
 
     setInterval(function () {
@@ -293,6 +298,8 @@ function timerBoucle() {
                 $footer.classList.add("yellow")
                 $timer.classList.add("white")
                 $time.classList.add("black")
+                $playerYellow.classList.remove("yellow-turn")
+                $playerRed.classList.remove("red-turn")
                 $playerVsTurn.classList.add("black")
                 $playerCpuTurn.classList.add("black")
                 $timerPlay.classList.remove("hidden")
@@ -308,6 +315,8 @@ function timerBoucle() {
                 $footer.classList.add("red")
                 $timer.classList.add("white")
                 $time.classList.add("black")
+                $playerYellow.classList.remove("yellow-turn")
+                $playerRed.classList.remove("red-turn")
                 $playerVsTurn.classList.add("black")
                 $playerCpuTurn.classList.add("black")
                 $timerPlay.classList.remove("hidden")
@@ -496,7 +505,7 @@ $cells.forEach(function ($cell) {
                     }
                 }
                 turnToPlay()
-            }, 100)
+            }, 2000)
         }
     }
 
@@ -505,6 +514,10 @@ $cells.forEach(function ($cell) {
             $timer.classList.add("red")
             $timer.classList.remove("yellow")
             $timer.classList.remove("white")
+            $bareTimeContentYellow.classList.remove("animation-bare")
+            $bareTimeContentYellow.classList.add("hidden")
+            $bareTimeContentRed.classList.remove("hidden")
+            $bareTimeContentRed.classList.add("animation-bare")
             $playerRed.classList.add("red-turn")
             $playerYellow.classList.remove("yellow-turn")
             $playerVsTurn.textContent = `${playerVsOne}'S TURN`
@@ -516,7 +529,11 @@ $cells.forEach(function ($cell) {
             $timer.classList.add("yellow")
             $timer.classList.remove("white")
             $timer.classList.remove("red")
+            $bareTimeContentRed.classList.remove("animation-bare")
             $playerRed.classList.remove("red-turn")
+            $bareTimeContentYellow.classList.remove("hidden")
+            $bareTimeContentRed.classList.add("hidden")
+            $bareTimeContentYellow.classList.add("animation-bare")
             $playerYellow.classList.add("yellow-turn")
             $playerVsTurn.textContent = `${playerVsTwo}'S TURN`
             $playerCpuTurn.textContent = `${playerCpuTwo}'S TURN`
@@ -564,11 +581,10 @@ $cells.forEach(function ($cell) {
                 countRed++
                 $countPointsRed.textContent = `${countRed}`
                 $footer.classList.add("red")
-                
                 $timer.classList.add("white")
                 $time.classList.add("black")
                 $playerYellow.classList.remove("yellow-turn")
-            $playerRed.classList.remove("red-turn")
+                $playerRed.classList.remove("red-turn")
                 $playerVsTurn.classList.add("black")
                 $playerCpuTurn.classList.add("black")
                 $timerPlay.classList.remove("hidden")
@@ -591,7 +607,7 @@ $cells.forEach(function ($cell) {
                 $timer.classList.add("white")
                 $time.classList.add("black")
                 $playerYellow.classList.remove("yellow-turn")
-            $playerRed.classList.remove("red-turn")
+                $playerRed.classList.remove("red-turn")
                 $playerVsTurn.classList.add("black")
                 $playerCpuTurn.classList.add("black")
                 $timerPlay.classList.remove("hidden")
