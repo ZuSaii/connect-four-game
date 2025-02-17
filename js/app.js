@@ -478,7 +478,6 @@ $cells.forEach(function ($cell) {
 
     function iaJoue() {
         if ($playerCpuTurn.classList.contains("hidden")) {
-            console.log("r")
         } else {
 
             if (checkWin(gameGridBoard) === true) {
