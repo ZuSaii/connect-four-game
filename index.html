@@ -151,6 +151,55 @@
             </div>
         </div>
     </section>
+    <section class="choose-name-container hidden">
+        <div class="choose-name-content">
+            <?xml version="1.0" encoding="UTF-8"?>
+            <svg width="58px" height="61px" viewBox="0 0 58 61" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <title>logo</title>
+                <g id="Designs" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="assets" transform="translate(-432.000000, -742.000000)">
+                        <g id="Group-24" transform="translate(211.000000, 160.000000)">
+                            <g id="logo" transform="translate(221.000000, 582.000000)">
+                                <g id="Group-23" fill="#000000">
+                                    <circle id="Oval-Copy-47" cx="13" cy="13" r="13"></circle>
+                                    <circle id="Oval-Copy-51" cx="45" cy="13" r="13"></circle>
+                                    <circle id="Oval-Copy-53" cx="13" cy="45" r="13"></circle>
+                                    <circle id="Oval-Copy-52" cx="45" cy="45" r="13"></circle>
+                                </g>
+                                <g id="Group-23-Copy" transform="translate(0.000000, 3.000000)" fill="#000000">
+                                    <circle id="Oval-Copy-47" cx="13" cy="13" r="13"></circle>
+                                    <circle id="Oval-Copy-51" cx="45" cy="13" r="13"></circle>
+                                    <circle id="Oval-Copy-53" cx="13" cy="45" r="13"></circle>
+                                    <circle id="Oval-Copy-52" cx="45" cy="45" r="13"></circle>
+                                </g>
+                                <circle id="Oval-Copy-11" fill="#FD6687" cx="13" cy="13" r="10"></circle>
+                                <circle id="Oval-Copy-25" fill="#FD6687" cx="45" cy="45" r="10"></circle>
+                                <circle id="Oval-Copy-23" fill="#FFCE67" cx="45" cy="13" r="10"></circle>
+                                <circle id="Oval-Copy-24" fill="#FFCE67" cx="13" cy="45" r="10"></circle>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+            <h2 class="choose-name-title">CHOOSE YOUR NAMES </h2>
+            <p class="choose-name-optional">( optnional )</p>
+            <form class="choose-name-form">
+                <div class="red-name-container">
+                    <label for="red-name">red name</label>
+                    <input id="red-name" type="text" name="red-name" placeholder="Ex : Lucie">
+                    <p class="error-message-name-one hidden">Ton nom doit contenir entre 3 et 10 lettres !</p>
+                </div>
+                <div class="yellow-name-container">
+                    <label for="yellow-name">yellow name</label>
+                    <input id="yellow-name" type="text" name="yellow-name" placeholder="Ex : Jacob">
+                    <p class="error-message-name-two hidden">Your name must contain between 3 and 10 letters !</p>
+                </div>
+                <button type="submit" class="choose-name-done">done</button>
+            </form>
+            <button class="choose-name-quit">skip names</button>
+        </div>
+    </section>
     <section class="rules-menu hidden">
         <div class="rules-menu-container">
             <h2 class="rules-menu-title">rules</h2>
@@ -199,8 +248,8 @@
     <main>
         <header class="hidden">
             <button class="header-button-menu">menu</button>
-            <svg width="58px" height="61px" viewBox="0 0 58 61" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink">
+            <svg class="header-logo" width="58px" height="61px" viewBox="0 0 58 61" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>logo</title>
                 <g id="Designs" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <g id="assets" transform="translate(-432.000000, -742.000000)">
@@ -232,8 +281,8 @@
         <div class="middle-page hidden">
             <section class="player-red">
                 <?xml version="1.0" encoding="UTF-8"?>
-                <svg width="54px" height="59px" viewBox="0 0 54 59" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                <svg class="player-one-two" width="54px" height="59px" viewBox="0 0 54 59" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <title>player-one</title>
                     <g id="Designs" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                         <g id="player-one">
@@ -255,13 +304,39 @@
                         </g>
                     </g>
                 </svg>
+                <?xml version="1.0" encoding="UTF-8"?>
+                <svg class="player-you-cpu hidden" width="54px" height="59px" viewBox="0 0 54 59" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <title>you</title>
+                    <g id="Designs" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="you"
+                            transform="translate(27.000000, 29.500000) scale(-1, 1) translate(-27.000000, -29.500000) ">
+                            <circle id="Oval-Copy-21" fill="#000000" cx="27" cy="27" r="27"></circle>
+                            <circle id="Oval-Copy-40" fill="#000000" cx="27" cy="32" r="27"></circle>
+                            <circle id="Oval-Copy-11" fill="#FD6687" cx="27" cy="27" r="24"></circle>
+                            <g id="Group-22" transform="translate(15.000000, 17.000000)" stroke="#000000"
+                                stroke-width="3">
+                                <path d="M6,27 C12.627417,27 18,21.627417 18,15 C18,8.372583 12.627417,3 6,3"
+                                    id="Oval-Copy-11"
+                                    transform="translate(12.000000, 15.000000) rotate(90.000000) translate(-12.000000, -15.000000) ">
+                                </path>
+                                <g id="Group-7" transform="translate(7.000000, 0.000000)">
+                                    <line x1="0.5" y1="0" x2="0.5" y2="5.9844035" id="Path"></line>
+                                    <line x1="10.5" y1="0" x2="10.5" y2="5.9844035" id="Path-Copy"></line>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
                 <div class="player-red-content">
-                    <p class="player-number">player 1</p>
+                    <p class="player-number-red">player 1</p>
+                    <p class="player-cpu hidden">you</p>
                     <p class="count-points-red">0</p>
                 </div>
             </section>
             <section class="game-board">
                 <div class="columns">
+                    <div class="selected-column hidden" data-x="0"></div>
                     <div class="cells" data-x="0" data-y="0"></div>
                     <div class="cells" data-x="0" data-y="1"></div>
                     <div class="cells" data-x="0" data-y="2"></div>
@@ -270,6 +345,7 @@
                     <div class="cells" data-x="0" data-y="5"></div>
                 </div>
                 <div class="columns">
+                    <div class="selected-column hidden" data-x="1"></div>
                     <div class="cells" data-x="1" data-y="0"></div>
                     <div class="cells" data-x="1" data-y="1"></div>
                     <div class="cells" data-x="1" data-y="2"></div>
@@ -278,6 +354,7 @@
                     <div class="cells" data-x="1" data-y="5"></div>
                 </div>
                 <div class="columns">
+                    <div class="selected-column hidden" data-x="2"></div>
                     <div class="cells" data-x="2" data-y="0"></div>
                     <div class="cells" data-x="2" data-y="1"></div>
                     <div class="cells" data-x="2" data-y="2"></div>
@@ -286,6 +363,7 @@
                     <div class="cells" data-x="2" data-y="5"></div>
                 </div>
                 <div class="columns">
+                    <div class="selected-column hidden" data-x="3"></div>
                     <div class="cells" data-x="3" data-y="0"></div>
                     <div class="cells" data-x="3" data-y="1"></div>
                     <div class="cells" data-x="3" data-y="2"></div>
@@ -294,6 +372,7 @@
                     <div class="cells" data-x="3" data-y="5"></div>
                 </div>
                 <div class="columns">
+                    <div class="selected-column hidden" data-x="4"></div>
                     <div class="cells" data-x="4" data-y="0"></div>
                     <div class="cells" data-x="4" data-y="1"></div>
                     <div class="cells" data-x="4" data-y="2"></div>
@@ -302,6 +381,7 @@
                     <div class="cells" data-x="4" data-y="5"></div>
                 </div>
                 <div class="columns">
+                    <div class="selected-column hidden" data-x="5"></div>
                     <div class="cells" data-x="5" data-y="0"></div>
                     <div class="cells" data-x="5" data-y="1"></div>
                     <div class="cells" data-x="5" data-y="2"></div>
@@ -310,6 +390,7 @@
                     <div class="cells" data-x="5" data-y="5"></div>
                 </div>
                 <div class="columns">
+                    <div class="selected-column hidden" data-x="6"></div>
                     <div class="cells" data-x="6" data-y="0"></div>
                     <div class="cells" data-x="6" data-y="1"></div>
                     <div class="cells" data-x="6" data-y="2"></div>
@@ -320,8 +401,8 @@
             </section>
             <section class="player-yellow">
                 <?xml version="1.0" encoding="UTF-8"?>
-                <svg width="54px" height="59px" viewBox="0 0 54 59" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                <svg class="player-one-two" width="54px" height="59px" viewBox="0 0 54 59" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <title>player-two</title>
                     <g id="Designs" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                         <g id="player-two"
@@ -344,13 +425,41 @@
                         </g>
                     </g>
                 </svg>
+                <?xml version="1.0" encoding="UTF-8"?>
+                <svg class="player-you-cpu hidden" width="54px" height="59px" viewBox="0 0 54 59" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <title>cpu</title>
+                    <g id="Designs" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="cpu">
+                            <circle id="Oval-Copy-21" fill="#000000"
+                                transform="translate(27.000000, 27.000000) scale(-1, 1) translate(-27.000000, -27.000000) "
+                                cx="27" cy="27" r="27"></circle>
+                            <circle id="Oval-Copy-40" fill="#000000"
+                                transform="translate(27.000000, 32.000000) scale(-1, 1) translate(-27.000000, -32.000000) "
+                                cx="27" cy="32" r="27"></circle>
+                            <circle id="Oval-Copy-11" fill="#FFCE67"
+                                transform="translate(27.000000, 27.000000) scale(-1, 1) translate(-27.000000, -27.000000) "
+                                cx="27" cy="27" r="24"></circle>
+                            <g id="Group-8" transform="translate(15.000000, 18.000000)" stroke="#000000"
+                                stroke-width="3">
+                                <g id="Group-10">
+                                    <line x1="14.5" y1="0.5" x2="20.5" y2="0.5" id="Path-Copy"></line>
+                                    <line x1="3.5" y1="0.5" x2="9.5" y2="0.5" id="Path-Copy-2"></line>
+                                    <line x1="0" y1="7.5" x2="24" y2="7.5" id="Path-2"></line>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
                 <div class="player-yellow-content">
-                    <p class="player-number">player 2</p>
+                    <p class="player-number-yellow">player 2</p>
+                    <p class="player-cpu hidden">cpu</p>
                     <p class="count-points-yellow">0</p>
                 </div>
             </section>
             <div class="timer">
-                <p class="player-turn">p </p>
+                <p class="player-vs-turn">p</p>
+                <p class="player-cpu-turn hidden">p</p>
                 <p class="time">30s</p>
                 <button class="timer-play hidden">play again</button>
             </div>

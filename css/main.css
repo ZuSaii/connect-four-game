@@ -53,11 +53,25 @@ header {
     flex-direction: column;
     gap: 24px;
     transition-duration: 0.2s;
+    position: relative;
 }
 
 .columns:hover {
     cursor: pointer;
     transform: scale(1.02);
+}
+
+.selected-column {
+    position: absolute;
+    width: 50px;
+    top: -80px;
+    left: 15px;
+    height: 50px;
+    border-radius: 50%;
+    border: solid 3px black;
+    box-shadow: 0 1px 0px 1px black;
+    content: "";
+    background-color: red;
 }
 
 .cells {
@@ -139,6 +153,7 @@ header {
     display: flex;
     background-color: var(--red);
     align-items: center;
+    color: #FFF;
     justify-content: space-between;
 }
 
@@ -226,6 +241,162 @@ header {
     border: solid 3px var(--dark-blue);
 }
 
+.choose-name-container {
+    background: #00000080;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    z-index: 1;
+}
+
+.choose-name-content {
+    box-shadow: 0 5px 0px 1px black;
+    border: solid 3px black;
+    border-radius: 40px;
+    background-color: var(--purple-bg);
+    padding: 50px 40px;
+    width: 480px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2;
+}
+
+.choose-name-form {
+    width: 100%;
+}
+
+.choose-name-form label {
+    color: #FFF;
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: "Space Grotesk", serif;
+    transition-duration: all 0.3s;
+    color: #FFF;
+    margin-left: 4px;
+}
+
+.red-name-container,
+.yellow-name-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.red-name-container {
+    margin-bottom: 24px;
+}
+
+.error-message-name-one,
+.error-message-name-two {
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+    font-family: "Space Grotesk", serif;
+    transition-duration: all 0.3s;
+    color: red;
+    margin-left: 4px;
+}
+
+::placeholder {
+    color: white;
+    opacity: 1;
+}
+
+#red-name {
+    background-color: var(--red);
+}
+
+#yellow-name {
+    background-color: var(--yellow);
+}
+
+.choose-name-done,
+.choose-name-quit {
+    box-shadow: 0 5px 0px 1px black;
+    border: solid 3px black;
+    width: 100%;
+    padding: 20px;
+    border-radius: 20px;
+    outline: none;
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: "Space Grotesk", serif;
+    transition-duration: all 0.3s;
+    color: #FFF;
+}
+
+.choose-name-done {
+    margin-bottom: 16px;
+    background-color: #008F11;
+    margin-top: 40px;
+}
+
+.choose-name-quit {
+    background-color: red;
+}
+
+.choose-name-quit:hover,
+.choose-name-done:hover {
+    cursor: pointer;
+    box-shadow: 0 5px 0px 1px var(--dark-blue);
+    border: solid 3px var(--dark-blue);
+}
+
+#red-name:hover,
+#yellow-name:hover {
+    box-shadow: 0 5px 0px 1px var(--dark-blue);
+    border: solid 3px var(--dark-blue);
+}
+
+#red-name,
+#yellow-name {
+    box-shadow: 0 5px 0px 1px black;
+    border: solid 3px black;
+    width: 100%;
+    padding: 14px;
+    border-radius: 20px;
+    outline: none;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 700;
+    font-family: "Space Grotesk", serif;
+    transition-duration: all 0.3s;
+    color: #FFF;
+    cursor: text;
+}
+
+.choose-name-title {
+    font-family: "Space Grotesk", serif;
+    color: white;
+    font-size: 36px;
+    text-transform: uppercase;
+    line-height: 71px;
+    margin-bottom: -24px;
+    font-weight: 700;
+    margin-top: 24px;
+    text-align: center;
+}
+
+.choose-name-optional {
+    font-family: "Space Grotesk", serif;
+    color: #FFF;
+    font-size: 28px;
+    text-transform: uppercase;
+    line-height: 71px;
+    margin-bottom: 24px;
+    font-weight: 700;
+    text-align: center;
+}
+
 .player-red,
 .player-yellow {
     background-color: #FFF;
@@ -237,6 +408,7 @@ header {
     align-items: flex-end;
     border-radius: 20px;
     height: 160px;
+    opacity: 0;
 }
 
 .player-red svg,
@@ -263,7 +435,9 @@ header {
     font-family: "Space Grotesk", serif;
 }
 
-.player-number {
+.player-number-red,
+.player-number-yellow,
+.player-cpu {
     font-family: "Space Grotesk", serif;
     font-size: 20px;
     text-transform: uppercase;
@@ -287,6 +461,15 @@ header button {
     color: #FFF;
     transition-duration: 0.3s;
     cursor: pointer;
+}
+
+.header-button-menu,
+.header-button-restart {
+    opacity: 0;
+}
+
+.header-logo {
+    opacity: 0;
 }
 
 header button:hover {
@@ -329,8 +512,6 @@ header button:hover {
     font-family: "Space Grotesk", serif;
     text-transform: uppercase;
 }
-
-
 
 .rules-menu-title {
     text-align: center;
@@ -382,7 +563,6 @@ header button:hover {
     cursor: pointer;
 }
 
-
 footer {
     background-color: var(--dark-blue);
     border-radius: 64px 64px 0px 0px;
@@ -401,11 +581,12 @@ footer {
     background-color: var(--red);
     border: solid 4px black;
     left: 440px;
-    border-radius:20px;
+    border-radius: 20px;
     bottom: -110px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    opacity: 0;
     justify-content: center;
 }
 
@@ -419,10 +600,11 @@ footer {
     text-align: center;
 }
 
-.player-turn {
+.player-vs-turn,
+.player-cpu-turn {
     text-align: center;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 20px;
     font-family: "Space Grotesk", serif;
     color: white;
@@ -448,8 +630,46 @@ footer {
     background-color: var(--yellow);
 }
 
+.animation {
+    animation: piece 0.25s ease-out forwards;
+}
+
+.animation-player-red {
+    animation: animPlayerLeft 0.4s ease-out forwards;
+}
+
+.animation-player-yellow {
+    animation: animPlayerRight 0.4s ease-out forwards;
+}
+
+.animation-timer {
+    animation: animTimer 0.5s ease-out forwards;
+}
+
+.animation-game-board {
+    animation: animGameBoard 1s ease-out forwards;
+}
+
+.animation-header {
+    animation: animHeader 0.3s ease-out forwards;
+}
+
 .red {
     background-color: var(--red);
+}
+
+.red-turn {
+    border: solid 5px var(--red);
+    box-shadow: 0px 10px 20px 10px var(--red);
+}
+
+.yellow-turn {
+    border: solid 5px var(--yellow);
+    box-shadow: 0px 10px 20px 10px var(--yellow);
+}
+
+.wins {
+    box-shadow: inset 0px 0px 0px 10px #FFF;
 }
 
 .white {
@@ -458,4 +678,81 @@ footer {
 
 .black {
     color: black;
+}
+
+.hover-check {
+    transform: scale(1.1);
+    transition-duration: 0.15s;
+}
+
+@keyframes piece {
+    from {
+        transform: translateY(-40vw);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes animPlayerLeft {
+    from {
+        transform: translateX(-4vw);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0vw);
+        opacity: 1;
+    }
+}
+
+@keyframes animPlayerRight {
+    from {
+        transform: translateX(4vw);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0vw);
+        opacity: 1;
+    }
+}
+
+@keyframes animTimer {
+    from {
+        transform: translateY(4vw);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0vw);
+        opacity: 1;
+    }
+}
+
+@keyframes animGameBoard {
+    from {
+        transform: translateY(-4vw);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0vw);
+        opacity: 1;
+    }
+}
+
+@keyframes animHeader {
+    from {
+        transform: translateY(-4vw);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0vw);
+        opacity: 1;
+    }
 }
