@@ -211,6 +211,8 @@ $homeButtonVs.addEventListener("click", function () {
     $header.classList.remove("hidden")
     $chooseName.classList.remove("hidden")
     $middlePage.classList.remove("hidden")
+    countRed = 0
+    countYellow = 0
     $footer.classList.remove("hidden")
 })
 
@@ -243,6 +245,8 @@ $rulesMenuCheck.addEventListener("mouseout", function () {
 })
 
 $homeButtonCpu.addEventListener("click", function (e) {
+    countRed = 0
+    countYellow = 0
     $homeContainer.classList.add("hidden")
     $header.classList.remove("hidden")
     $middlePage.classList.remove("hidden")
