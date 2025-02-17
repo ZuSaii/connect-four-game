@@ -99,6 +99,8 @@ $pauseMenuQuitBtn.addEventListener("click", function (e) {
     $playerYellow.classList.remove("animation-player-yellow")
     $playerRed.classList.remove("animation-player-red")
     $playerNumberRed.classList.remove("hidden")
+    $playerRed.classList.remove("red-turn")
+    $playerYellow.classList.remove("yellow-turn")
     $playerNumberYellow.classList.remove("hidden")
     $playerCpu.forEach(function (playerCpu) {
         playerCpu.classList.add("hidden")
@@ -112,6 +114,8 @@ $pauseMenuQuitBtn.addEventListener("click", function (e) {
 
     countRed = 0
     countYellow = 0
+
+    
     $playerVsTurn.textContent = `${playerVsOne}`
     $playerCpuTurn.textContent = `${playerCpuOne}`
     $playerNumberRed.textContent = `${playerCpuOne}`
@@ -126,6 +130,8 @@ $pauseMenuQuitBtn.addEventListener("click", function (e) {
     $timer.classList.add("red")
     $timer.classList.remove("white")
     $time.classList.remove("black")
+    $bareTime.classList.add("hidden")
+    $bareTime.classList.add("hidden")
     $playerVsTurn.classList.remove("black")
     $playerCpuTurn.classList.remove("black")
     $footer.classList.remove("yellow")
@@ -159,11 +165,13 @@ $pauseMenuContinueBtn.addEventListener("click", function (e) {
 
 $pauseMenuRestartBtn.addEventListener("click", function (e) {
     $playerVsTurn.textContent = `${playerVsOne}`
-    $playerCpuTurn.textContent = `${playerVsOne}`
+    $playerCpuTurn.textContent = `${playerCpuOne}`
     $playerNumberRed.textContent = `${playerCpuOne}`
     $playerNumberRed.textContent = `${playerVsOne}`
     $playerRed.classList.remove("red-turn")
     $playerYellow.classList.remove("yellow-turn")
+    $bareTime.classList.add("hidden")
+    $bareTime.classList.add("hidden")
     $time.textContent = "Start"
     start = 0
     locked = false
@@ -546,6 +554,7 @@ $cells.forEach(function ($cell) {
         if (start === 0) {
             setInterval(timerBoucle(), 60000)
             start++
+            $bareTime.classList.remove("hidden")
         }
         start++
 
@@ -626,6 +635,8 @@ $timerPlay.addEventListener("click", function () {
     $playerNumberRed.textContent = `${playerVsOne}`
     $playerRed.classList.remove("red-turn")
     $playerYellow.classList.remove("yellow-turn")
+    $bareTime.classList.add("hidden")
+    $bareTime.classList.add("hidden")
     $time.textContent = "Start"
     start = 0
     locked = false
@@ -657,7 +668,6 @@ $timerPlay.addEventListener("click", function () {
         cell.classList.remove("animation")
         cell.classList.remove("wins")
     })
-
     win = []
 })
 
@@ -668,6 +678,8 @@ $headerButtonRestart.addEventListener("click", function () {
     $playerNumberRed.textContent = `${playerVsOne}`
     $playerRed.classList.remove("red-turn")
     $playerYellow.classList.remove("yellow-turn")
+    $bareTime.classList.add("hidden")
+    $bareTime.classList.add("hidden")
     $time.textContent = "Start"
     start = 0
     locked = false
@@ -699,6 +711,5 @@ $headerButtonRestart.addEventListener("click", function () {
         cell.classList.remove("animation")
         cell.classList.remove("wins")
     })
-
     win = []
 })
